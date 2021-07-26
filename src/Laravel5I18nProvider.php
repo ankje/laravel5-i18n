@@ -14,7 +14,7 @@ class Laravel5I18nProvider extends ServiceProvider
     public function register()
     {
         //
-        echo ">>>>>>>>>>>>!1111111111111111111";
+        echo ">>>>>>>>>>>>333333";
     }
 
     /**
@@ -25,6 +25,6 @@ class Laravel5I18nProvider extends ServiceProvider
     public function boot()
     {
         //
-        echo ">>>>>>>>>>>>!222222222222222222222";
+        echo ">>>>>>>>>>>>444444";
     }
 }
