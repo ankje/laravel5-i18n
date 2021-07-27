@@ -3,7 +3,7 @@
     "description": "override the translation.loader on laravel 5.8",
     "type": "library",
     "require": {
-        "illuminate/translation": "5.8.*"
+        "illuminate/translation": "^5.8"
     },
     "autoload": {
         "psr-4": {
