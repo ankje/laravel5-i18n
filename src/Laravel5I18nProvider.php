@@ -1,6 +1,6 @@
 <?php
 
-namespace Ankje\Laravel5I18n;
+namespace Jy\Laravel5I18n;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
@@ -11,7 +11,7 @@ class Laravel5I18nProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/../config/ai18n.php' => config_path('ai18n.php'),
+            __DIR__ . '/../config/jyi18n.php' => config_path('jyi18n.php'),
         ],'config');
     }
 
@@ -23,14 +23,14 @@ class Laravel5I18nProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/../config/ai18n.php',
-            'ai18n'
+            __DIR__ . '/../config/jyi18n.php',
+            'jyi18n'
         );
 
         $this->registerLoader();
 
-        $this->app->singleton('a.translator', function ($app) {
-            $loader = $app['a.translation.loader'];
+        $this->app->singleton('jy.translator', function ($app) {
+            $loader = $app['jy.translation.loader'];
 
             // When registering the translator component, we'll need to set the default
             // locale as well as the fallback locale. So, we'll grab the application
@@ -43,6 +43,10 @@ class Laravel5I18nProvider extends ServiceProvider
 
             return $trans;
         });
+
+        $this->app->singleton('jy.i18nhelper', function ($app) {
+            return new I18nHelper();
+        });
     }
 
     /**
@@ -52,8 +56,8 @@ class Laravel5I18nProvider extends ServiceProvider
      */
     protected function registerLoader()
     {
-        $this->app->singleton('a.translation.loader', function ($app) {
-            $langLoaderClass = Arr::get($this->app['config']->get('ai18n'),'translation_loader');
+        $this->app->singleton('jy.translation.loader', function ($app) {
+            $langLoaderClass = Arr::get($this->app['config']->get('jyi18n'),'translation_loader');
             return new $langLoaderClass($app['files'], $app['path.lang']);
         });
     }
@@ -65,6 +69,6 @@ class Laravel5I18nProvider extends ServiceProvider
      */
     public function provides()
     {
-        return ['a.translator', 'a.translation.loader'];
+        return ['jy.translator', 'jy.translation.loader'];
     }
 }

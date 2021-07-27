@@ -1,19 +1,19 @@
 {
-    "name": "ankje/laravel5-i18n",
+    "name": "jy/laravel5-i18n",
     "description": "override the translation.loader on laravel 5.8",
     "type": "library",
     "require": {
-        "illuminate/translation": "^5.8"
+        "laravel/framework": "5.8.*"
     },
     "autoload": {
         "psr-4": {
-            "Ankje\\Laravel5I18n\\": "src/"
+            "Jy\\Laravel5I18n\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Ankje\\Laravel5I18n\\Laravel5I18nProvider"
+                "Jy\\Laravel5I18n\\Laravel5I18nProvider"
             ]
         }
     },
