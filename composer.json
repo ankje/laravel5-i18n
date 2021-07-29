@@ -1,5 +1,5 @@
 {
-    "name": "jy/laravel5-i18n",
+    "name": "ankje/laravel5-i18n",
     "description": "override the translation.loader on laravel 5.8",
     "type": "library",
     "require": {
