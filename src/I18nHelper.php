@@ -7,7 +7,6 @@ use Illuminate\Support\NamespacedItemResolver;
 class I18nHelper
 {
     public function trans($key,$replace = [], $locale = null){
-        $locale = header('lang',$locale);
         $defaultModule = 'common';
         $segments = (new NamespacedItemResolver)->parseKey($key);
         $module = $segments[1];
