@@ -13,9 +13,13 @@ class I18nHelper
         //如果解析出的模块就使用默认模块
         if(!app('jy.translation.loader')->existsModule($module)){
             $key = $defaultModule.'.'.$key;
-        }        
+        }elseif($key==$module){
+            $key = ($segments[0]??'*').'::'.($segments[1]??'*').'.'.$key;
+        }
         $ret = app('jy.translator')->getFromJson($key, $replace, $locale);
-        $segments = (new NamespacedItemResolver)->parseKey($ret);
+        if($ret){
+            $segments = (new NamespacedItemResolver)->parseKey($ret);
+        }
         return $segments[2]??$segments[1];
     }
 }
