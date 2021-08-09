@@ -4,7 +4,6 @@ namespace Jy\Laravel5I18n;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Translation\Translator;
 
 class Laravel5I18nProvider extends ServiceProvider
 {
